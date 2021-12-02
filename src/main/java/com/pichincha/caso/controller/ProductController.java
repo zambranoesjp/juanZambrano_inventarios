@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pichincha.caso.exception.ServiceException;
 import com.pichincha.caso.model.Product;
 import com.pichincha.caso.service.ProductService;
-import com.pichincha.caso.to.ProductCodeAndNameTO;
 import com.pichincha.caso.to.ProductIdAndStockTO;
+import com.pichincha.caso.to.ProductTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,7 +37,7 @@ public class ProductController {
 		try {
 			List<Product> products = productService.retrieveAllProducts();
 
-			List<ProductCodeAndNameTO> resultado = new ArrayList<>();
+			List<ProductTO> resultado = new ArrayList<>();
 
 			products.forEach(p -> resultado.add(p.getCodeAndName()));
 

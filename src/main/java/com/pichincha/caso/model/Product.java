@@ -10,8 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.pichincha.caso.to.ProductCodeAndNameTO;
 import com.pichincha.caso.to.ProductIdAndNameTO;
+import com.pichincha.caso.to.ProductTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,7 +55,7 @@ public class Product implements Serializable {
 	}
 	
 	@Transient
-	public ProductCodeAndNameTO getCodeAndName() {
-		return ProductCodeAndNameTO.builder().code(getCode()).name(getName()).build();
+	public ProductTO getCodeAndName() {
+		return ProductTO.builder().cod(getCode()).name(getName()).build();
 	}
 }

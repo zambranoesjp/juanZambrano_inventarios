@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.pichincha.caso.JuanZambranoInventariosApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.662 s - in com.pichincha.caso.JuanZambranoInventariosApplicationTests

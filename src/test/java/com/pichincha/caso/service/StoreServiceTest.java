@@ -1,16 +1,19 @@
 package com.pichincha.caso.service;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.pichincha.caso.exception.ServiceException;
 import com.pichincha.caso.model.Store;
 import com.pichincha.caso.repository.StoreRepository;
 import com.pichincha.caso.service.impl.StoreServiceImpl;
@@ -25,7 +28,7 @@ public class StoreServiceTest {
 	private StoreRepository storeRepository;
 
 	@Test
-	void contextLoads() {
+	void shouldGetAListOfStores() {
 		Store store1 = new Store(1L);
 		store1.setName("Tienda 1");
 
@@ -40,6 +43,25 @@ public class StoreServiceTest {
 
 		List<Store> resultado = storeService.retrieveAllStores();
 
+		assertFalse(resultado.isEmpty());
+	}
+
+	@Test
+	void shouldGetAStore() {
+		Store store = new Store(1L);
+		store.setName("Tienda 1");
+
+		Optional<Store> optinal = Optional.ofNullable(store);
+
+		when(storeRepository.findById(1L)).thenReturn(optinal);
+
+		Store resultado = storeService.retrieveStoreById(1L);
+
 		assertNotNull(resultado);
+	}
+
+	@Test
+	void shouldThrowException() {
+		when(storeRepository.findById(1L)).thenThrow(ServiceException.class);
 	}
 }

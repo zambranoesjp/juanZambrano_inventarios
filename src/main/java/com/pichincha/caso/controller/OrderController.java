@@ -34,20 +34,20 @@ public class OrderController {
 		}
 	}
 
-	@GetMapping("/reporte1")
-	public ResponseEntity<?> reporte1() {
+	@GetMapping("/reportNumTrans")
+	public ResponseEntity<?> reportNumTrans() {
 		try {
-			List<ReportNumTransDTO> resultado = orderService.reporte1();
+			List<ReportNumTransDTO> resultado = orderService.reportNumTrans();
 			return new ResponseEntity<>(resultado, HttpStatus.OK);
 		} catch (ServiceException e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@GetMapping("/reporte2")
-	public ResponseEntity<?> reporte2() {
+	@GetMapping("/reportMontoVenta")
+	public ResponseEntity<?> reportMontoVenta() {
 		try {
-			List<ReportMontoVentaDTO> resultado = orderService.reporte2();
+			List<ReportMontoVentaDTO> resultado = orderService.reportMontoVenta();
 			return new ResponseEntity<>(resultado, HttpStatus.OK);
 		} catch (ServiceException e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

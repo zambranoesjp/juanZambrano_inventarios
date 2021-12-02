@@ -19,8 +19,8 @@ import com.pichincha.caso.model.dto.ReportMontoVentaDTO;
 import com.pichincha.caso.repository.OrderDetailRepository;
 import com.pichincha.caso.repository.OrderRepository;
 import com.pichincha.caso.repository.ProductRepository;
-import com.pichincha.caso.repository.Report1Repository;
-import com.pichincha.caso.repository.Report2Repository;
+import com.pichincha.caso.repository.ReportNumTransRepository;
+import com.pichincha.caso.repository.ReportMontoVentaRepository;
 import com.pichincha.caso.service.CompensationService;
 import com.pichincha.caso.service.OrderService;
 import com.pichincha.caso.to.OrderDetailTO;
@@ -43,10 +43,10 @@ public class OrderServiceImpl implements OrderService {
 	private CompensationService compensationService;
 	
 	@Autowired
-	private Report1Repository report1Repository;
+	private ReportNumTransRepository reportNumTransRepository;
 	
 	@Autowired
-	private Report2Repository report2Repository;
+	private ReportMontoVentaRepository reportMontoVentaRepository;
 
 	@Override
 	@Transactional
@@ -68,14 +68,14 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	@Transactional(readOnly = true )
-	public List<ReportNumTransDTO> reporte1(){
-		return report1Repository.reporte1();
+	public List<ReportNumTransDTO> reportNumTrans(){
+		return reportNumTransRepository.reportNumTrans();
 	}
 	
 	@Override
 	@Transactional(readOnly = true )
-	public List<ReportMontoVentaDTO> reporte2(){
-		return report2Repository.reporte2();
+	public List<ReportMontoVentaDTO> reportMontoVenta(){
+		return reportMontoVentaRepository.reportMontoVenta();
 	}
 
 	private void details(Order order, OrderDetailTO detail) throws ServiceException {

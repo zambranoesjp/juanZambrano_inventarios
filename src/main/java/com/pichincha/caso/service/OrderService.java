@@ -10,8 +10,8 @@ public interface OrderService {
 
 	void execute(OrderTo orderTo);
 
-	List<ReportNumTransDTO> reporte1();
+	List<ReportNumTransDTO> reportNumTrans();
 
-	List<ReportMontoVentaDTO> reporte2();
+	List<ReportMontoVentaDTO> reportMontoVenta();
 
 }

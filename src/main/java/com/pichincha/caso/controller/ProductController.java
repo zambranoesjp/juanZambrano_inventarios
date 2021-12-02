@@ -39,7 +39,7 @@ public class ProductController {
 
 			List<ProductTO> resultado = new ArrayList<>();
 
-			products.forEach(p -> resultado.add(p.getCodeAndName()));
+			products.forEach(p -> resultado.add(p.getProductoTO()));
 
 			log.info(String.format("Products count: %s", products.size()));
 

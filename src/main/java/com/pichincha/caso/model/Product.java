@@ -55,7 +55,7 @@ public class Product implements Serializable {
 	}
 	
 	@Transient
-	public ProductTO getCodeAndName() {
+	public ProductTO getProductoTO() {
 		return ProductTO.builder().cod(getCode()).name(getName()).build();
 	}
 }

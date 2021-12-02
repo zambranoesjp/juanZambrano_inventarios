@@ -20,6 +20,6 @@ public class ReportMontoVentaDTO {
 	@Column(name = "NAME_PRODUCT")
 	private String productName;
 
-	@Column(name = "QUANTITY")
-	private Integer quantity;
+	@Column(name = "AMOUNT")
+	private Double amount;
 }
